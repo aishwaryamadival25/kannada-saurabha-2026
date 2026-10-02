@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Kannada Saurabha 2026</title>
+  <link rel="icon" type="image/png" href="../assets/images/hkbk-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="./admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- ================= 1. SUPABASE CREDENTIALS SETUP (If unconfigured) ================= -->
+  <div id="configCard" class="admin-auth-wrap" style="display:none;">
+    <div class="admin-auth-card">
+      <div class="admin-auth-brand">
+        <img src="../assets/images/hkbk-logo.png" alt="HKBK Logo">
+        <div>
+          <h2>Connect Supabase</h2>
+          <p>Kannada Saurabha 2026</p>
+        </div>
+      </div>
+      <p style="font-size:.88rem; color:var(--admin-text-soft); line-height:1.5;">
+        Supabase is not yet configured. You can either paste your credentials below or edit <code>js/supabase-config.js</code> directly.
+      </p>
+      <form onsubmit="window.AdminApp.handleSaveCredentials(event)" style="margin-top:18px;">
+        <div style="margin-bottom:14px;">
+          <label class="fldlabel">Supabase Project URL</label>
+          <input type="url" id="cfgUrl" class="fld" placeholder="https://your-project.supabase.co" required>
+        </div>
+        <div style="margin-bottom:18px;">
+          <label class="fldlabel">Supabase Publishable (Anon) Key</label>
+          <input type="text" id="cfgKey" class="fld" placeholder="eyJhbGciOiJIUzI1NiIsIn..." required>
+        </div>
+        <button type="submit" class="btn btn-dark" style="width:100%; justify-content:center;">Save &amp; Continue</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= 2. ADMIN AUTHENTICATION CARD ================= -->
+  <div id="authCard" class="admin-auth-wrap" style="display:none;">
+    <div class="admin-auth-card">
+      <div class="admin-auth-brand">
+        <img src="../assets/images/hkbk-logo.png" alt="HKBK Logo">
+        <div>
+          <h2>Admin Login</h2>
+          <p>Kannada Saurabha 2026 Dashboard</p>
+        </div>
+      </div>
+
+      <div id="loginError" style="display:none; background:rgba(200,16,46,0.1); border:1px solid var(--admin-primary); color:var(--admin-primary-dark); padding:10px 14px; border-radius:8px; font-size:.85rem; margin-bottom:16px;"></div>
+
+      <form onsubmit="window.AdminApp.handleLogin(event)">
+        <div style="margin-bottom:14px;">
+          <label class="fldlabel">Admin Email</label>
+          <input type="email" id="adminEmail" class="fld" placeholder="admin@example.com" required autocomplete="email">
+        </div>
+        <div style="margin-bottom:20px;">
+          <label class="fldlabel">Password</label>
+          <input type="password" id="adminPassword" class="fld" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+        <button type="submit" id="btnLogin" class="btn btn-dark" style="width:100%; justify-content:center; padding:12px;">Sign In to Dashboard</button>
+      </form>
+      <div style="margin-top:20px; text-align:center;">
+        <a href="../index.html" style="font-size:.85rem; color:var(--admin-primary); text-decoration:underline;">← Back to Public Website</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 3. PROTECTED ADMIN DASHBOARD SHELL ================= -->
+  <div id="dashboardShell" class="admin-shell" style="display:none;">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-header">
+        <img src="../assets/images/hkbk-logo.png" alt="HKBK">
+        <div>
+          <div class="title">Kannada Saurabha</div>
+          <div class="sub">Admin Portal 2026</div>
+        </div>
+      </div>
+
+      <ul class="admin-nav">
+        <li>
+          <button class="admin-nav-btn active" data-sec="home" onclick="window.AdminApp.switchSection('home')">
+            <span class="icon">🏠</span> Home Content
+          </button>
+        </li>
+        <li>
+          <button class="admin-nav-btn" data-sec="events" onclick="window.AdminApp.switchSection('events')">
+            <span class="icon">📅</span> Events &amp; Coordinators
+          </button>
+        </li>
+        <li>
+          <button class="admin-nav-btn" data-sec="conclave" onclick="window.AdminApp.switchSection('conclave')">
+            <span class="icon">🎓</span> Conclave Professors
+          </button>
+        </li>
+        <li>
+          <button class="admin-nav-btn" data-sec="mgmt_committee" onclick="window.AdminApp.switchSection('mgmt_committee')">
+            <span class="icon">🏛️</span> Management Committee
+          </button>
+        </li>
+        <li>
+          <button class="admin-nav-btn" data-sec="student_committee" onclick="window.AdminApp.switchSection('student_committee')">
+            <span class="icon">👥</span> Student Committee
+          </button>
+        </li>
+        <li>
+          <button class="admin-nav-btn" data-sec="guests" onclick="window.AdminApp.switchSection('guests')">
+            <span class="icon">🌟</span> Honoured Guests
+          </button>
+        </li>
+        <li>
+          <button class="admin-nav-btn" data-sec="packages" onclick="window.AdminApp.switchSection('packages')">
+            <span class="icon">📦</span> Sponsorship Packages
+          </button>
+        </li>
+        <li>
+          <button class="admin-nav-btn" data-sec="sponsors" onclick="window.AdminApp.switchSection('sponsors')">
+            <span class="icon">🤝</span> Our Sponsors
+          </button>
+        </li>
+        <li>
+          <button class="admin-nav-btn" data-sec="gallery" onclick="window.AdminApp.switchSection('gallery')">
+            <span class="icon">🖼️</span> Gallery (Photos &amp; Videos)
+          </button>
+        </li>
+        <li>
+          <button class="admin-nav-btn" data-sec="venue" onclick="window.AdminApp.switchSection('venue')">
+            <span class="icon">📍</span> Venue &amp; Contact
+          </button>
+        </li>
+        <li>
+          <button class="admin-nav-btn" data-sec="schedule" onclick="window.AdminApp.switchSection('schedule')">
+            <span class="icon">⏱️</span> Schedule Timeline
+          </button>
+        </li>
+        <li style="margin-top:14px; border-top:1px solid rgba(255,255,255,0.08); padding-top:10px;">
+          <button class="admin-nav-btn" data-sec="migration" onclick="window.AdminApp.switchSection('migration')">
+            <span class="icon">🚀</span> LocalStorage Migration
+          </button>
+        </li>
+      </ul>
+
+      <div class="admin-sidebar-footer">
+        <div class="admin-user-pill">
+          Logged in: <strong id="adminUserEmail" style="color:#fff;">Admin</strong>
+        </div>
+        <button class="btn btn-dark" onclick="window.AdminApp.handleLogout()" style="width:100%; justify-content:center; padding:8px 12px; font-size:.85rem; background:rgba(200,16,46,0.3); border-color:var(--admin-primary);">
+          Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <h1 class="admin-topbar-title" id="secTitle">Home Page Content</h1>
+        <div class="admin-topbar-actions">
+          <a href="../index.html" target="_blank" class="btn" style="background:#fff; border:1px solid var(--admin-border); font-size:.85rem;">
+            👁️ View Public Site ↗
+          </a>
+        </div>
+      </header>
+
+      <div class="admin-body-pad">
+        <div id="secContent">
+          <!-- Populated dynamically by admin.js -->
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ================= 4. GENERAL CRUD MODAL ================= -->
+  <div class="modal-overlay" id="adminModal">
+    <div class="ev-box" style="max-width:640px;">
+      <button class="modal-close" type="button" onclick="window.AdminApp.closeModal()" aria-label="Close">✕</button>
+      <div class="ev-scroll">
+        <div class="ev-pad">
+          <h3 id="adminModalTitle" style="margin-bottom:18px;"></h3>
+          <div id="adminModalBody"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 5. DELETE CONFIRMATION MODAL ================= -->
+  <div class="modal-overlay" id="adminConfirmModal">
+    <div class="ev-box" style="max-width:440px;">
+      <div class="ev-pad">
+        <h3 style="font-size:1.15rem; color:var(--admin-primary-dark); margin:0 0 10px;">Confirm Deletion</h3>
+        <p style="color:var(--admin-text-soft); font-size:.9rem; line-height:1.5; margin:0 0 20px;">
+          Are you sure you want to permanently delete <strong id="delEntityName" style="color:var(--admin-text);">this item</strong> from Supabase? This action cannot be undone.
+        </p>
+        <div style="display:flex; gap:10px; justify-content:flex-end;">
+          <button class="btn" type="button" onclick="window.AdminApp.closeConfirmModal()" style="background:#fff; border:1px solid var(--admin-border);">Cancel</button>
+          <button class="btn btn-dark" type="button" id="btnConfirmDelete" onclick="window.AdminApp.executeDelete()" style="background:var(--admin-primary);">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 6. TOAST NOTIFICATION ================= -->
+  <div id="adminToast" class="admin-toast"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/supabase-config.js"></script>
+  <script src="../js/supabase-data.js"></script>
+  <script src="./admin.js?v=2"></script>
+</body>
+</html>
