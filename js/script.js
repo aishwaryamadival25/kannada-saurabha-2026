@@ -111,7 +111,7 @@ const CONCLAVE_EVENT = {
   titleEn: "Karnataka Conclave",
   titleKn: "ಕರ್ನಾಟಕ ಕಾನ್ಕ್ಲೇವ್",
   tagline: "ನಮ್ಮ ನುಡಿ ನಮ್ಮ ಹೆಮ್ಮೆ",
-  date: "4 November 2026",
+  date: "3 November 2026",
   time: "11:30 AM – 12:00 PM",
   venue: "HKBK College of Engineering",
   descriptionEn: "As part of the Karnataka Rajyotsava celebrations, Kannada Saurabha brings together Kannada faculty from VTU to honour their dedication to teaching the Kannada language and preserving its literature and culture. The event recognises their contribution to shaping students' values and pride in Kannada heritage. Through felicitations, interaction and cultural engagement, it celebrates the people who keep our language and traditions alive.",
@@ -146,14 +146,14 @@ const DEFAULT_EVENTS=[
     icon: "🎭",
     coordinators: []
   },
-  {titleEn:"Cultural Performances", titleKn:"ಸಾಂಸ್ಕೃತಿಕ ಕಾರ್ಯಕ್ರಮಗಳು", date:"4 November 2026", time:"", venue:"HKBK College of Engineering", descriptionEn:"A showcase of Karnataka's performing arts.", descriptionKn:"ಕರ್ನಾಟಕದ ಪ್ರದರ್ಶನ ಕಲೆಗಳ ಪ್ರದರ್ಶನ.", image:"", icon:"💃", coordinators:[]},
-  {titleEn:"Classical Dance", titleKn:"ಶಾಸ್ತ್ರೀಯ ನೃತ್ಯ", date:"4 November 2026", time:"", venue:"HKBK College of Engineering", descriptionEn:"Bharatanatyam and Kuchipudi recitals.", descriptionKn:"ಭರತನಾಟ್ಯ ಮತ್ತು ಕೂಚಿಪುಡಿ ಪ್ರದರ್ಶನಗಳು.", image:"", icon:"🩰", coordinators:[]},
-  {titleEn:"Folk Dance", titleKn:"ಜಾನಪದ ನೃತ್ಯ", date:"4 November 2026", time:"", venue:"HKBK College of Engineering", descriptionEn:"Dollu Kunitha and regional folk forms.", descriptionKn:"ಡೊಳ್ಳು ಕುಣಿತ ಮತ್ತು ಪ್ರಾದೇಶಿಕ ಜಾನಪದ ಕಲೆಗಳು.", image:"", icon:"🥁", coordinators:[]},
-  {titleEn:"Music", titleKn:"ಸಂಗೀತ", date:"4 November 2026", time:"", venue:"HKBK College of Engineering", descriptionEn:"Live vocal and instrumental performances.", descriptionKn:"ನೇರ ಗಾಯನ ಮತ್ತು ವಾದ್ಯ ಪ್ರದರ್ಶನಗಳು.", image:"", icon:"🎶", coordinators:[]},
-  {titleEn:"Kannada Literature", titleKn:"ಕನ್ನಡ ಸಾಹಿತ್ಯ", date:"4 November 2026", time:"", venue:"HKBK College of Engineering", descriptionEn:"Poetry readings and author talks.", descriptionKn:"ಕವನ ವಾಚನ ಮತ್ತು ಲೇಖಕರ ಮಾತುಕತೆ.", image:"", icon:"📖", coordinators:[]},
-  {titleEn:"Awards", titleKn:"ಪ್ರಶಸ್ತಿಗಳು", date:"4 November 2026", time:"", venue:"HKBK College of Engineering", descriptionEn:"Recognising outstanding community members.", descriptionKn:"ಗಮನಾರ್ಹ ಸಮುದಾಯ ಸದಸ್ಯರ ಗೌರವ.", image:"", icon:"🏅", coordinators:[]},
-  {titleEn:"Children's Programs", titleKn:"ಮಕ್ಕಳ ಕಾರ್ಯಕ್ರಮಗಳು", date:"4 November 2026", time:"", venue:"HKBK College of Engineering", descriptionEn:"Fun activities and performances for kids.", descriptionKn:"ಮಕ್ಕಳಿಗಾಗಿ ಮೋಜಿನ ಚಟುವಟಿಕೆಗಳು ಮತ್ತು ಪ್ರದರ್ಶನಗಳು.", image:"", icon:"🧒", coordinators:[]},
-  {titleEn:"Community Activities", titleKn:"ಸಮುದಾಯ ಚಟುವಟಿಕೆಗಳು", date:"4 November 2026", time:"", venue:"HKBK College of Engineering", descriptionEn:"Food stalls, games and get-togethers.", descriptionKn:"ಆಹಾರ ಮಳಿಗೆಗಳು, ಆಟಗಳು ಮತ್ತು ಸಮಾಗಮ.", image:"", icon:"🍛", coordinators:[]}
+  {titleEn:"Cultural Performances", titleKn:"ಸಾಂಸ್ಕೃತಿಕ ಕಾರ್ಯಕ್ರಮಗಳು", date:"3 November 2026", time:"", venue:"HKBK College of Engineering", descriptionEn:"A showcase of Karnataka's performing arts.", descriptionKn:"ಕರ್ನಾಟಕದ ಪ್ರದರ್ಶನ ಕಲೆಗಳ ಪ್ರದರ್ಶನ.", image:"", icon:"💃", coordinators:[]},
+  {titleEn:"Classical Dance", titleKn:"ಶಾಸ್ತ್ರೀಯ ನೃತ್ಯ", date:"3 November 2026", time:"", venue:"HKBK College of Engineering", descriptionEn:"Bharatanatyam and Kuchipudi recitals.", descriptionKn:"ಭರತನಾಟ್ಯ ಮತ್ತು ಕೂಚಿಪುಡಿ ಪ್ರದರ್ಶನಗಳು.", image:"", icon:"🩰", coordinators:[]},
+  {titleEn:"Folk Dance", titleKn:"ಜಾನಪದ ನೃತ್ಯ", date:"3 November 2026", time:"", venue:"HKBK College of Engineering", descriptionEn:"Dollu Kunitha and regional folk forms.", descriptionKn:"ಡೊಳ್ಳು ಕುಣಿತ ಮತ್ತು ಪ್ರಾದೇಶಿಕ ಜಾನಪದ ಕಲೆಗಳು.", image:"", icon:"🥁", coordinators:[]},
+  {titleEn:"Music", titleKn:"ಸಂಗೀತ", date:"3 November 2026", time:"", venue:"HKBK College of Engineering", descriptionEn:"Live vocal and instrumental performances.", descriptionKn:"ನೇರ ಗಾಯನ ಮತ್ತು ವಾದ್ಯ ಪ್ರದರ್ಶನಗಳು.", image:"", icon:"🎶", coordinators:[]},
+  {titleEn:"Kannada Literature", titleKn:"ಕನ್ನಡ ಸಾಹಿತ್ಯ", date:"3 November 2026", time:"", venue:"HKBK College of Engineering", descriptionEn:"Poetry readings and author talks.", descriptionKn:"ಕವನ ವಾಚನ ಮತ್ತು ಲೇಖಕರ ಮಾತುಕತೆ.", image:"", icon:"📖", coordinators:[]},
+  {titleEn:"Awards", titleKn:"ಪ್ರಶಸ್ತಿಗಳು", date:"3 November 2026", time:"", venue:"HKBK College of Engineering", descriptionEn:"Recognising outstanding community members.", descriptionKn:"ಗಮನಾರ್ಹ ಸಮುದಾಯ ಸದಸ್ಯರ ಗೌರವ.", image:"", icon:"🏅", coordinators:[]},
+  {titleEn:"Children's Programs", titleKn:"ಮಕ್ಕಳ ಕಾರ್ಯಕ್ರಮಗಳು", date:"3 November 2026", time:"", venue:"HKBK College of Engineering", descriptionEn:"Fun activities and performances for kids.", descriptionKn:"ಮಕ್ಕಳಿಗಾಗಿ ಮೋಜಿನ ಚಟುವಟಿಕೆಗಳು ಮತ್ತು ಪ್ರದರ್ಶನಗಳು.", image:"", icon:"🧒", coordinators:[]},
+  {titleEn:"Community Activities", titleKn:"ಸಮುದಾಯ ಚಟುವಟಿಕೆಗಳು", date:"3 November 2026", time:"", venue:"HKBK College of Engineering", descriptionEn:"Food stalls, games and get-togethers.", descriptionKn:"ಆಹಾರ ಮಳಿಗೆಗಳು, ಆಟಗಳು ಮತ್ತು ಸಮಾಗಮ.", image:"", icon:"🍛", coordinators:[]}
 ];
 
 let events=DEFAULT_EVENTS;
@@ -344,7 +344,7 @@ function renderConclaveSection(){
 
       '<!-- Date / Time / Venue -->' +
       '<div style="display:flex; gap:10px 18px; flex-wrap:wrap; margin-bottom:18px; font-size:.92rem; font-weight:600; color:var(--ink);">' +
-        '<span style="display:inline-flex; align-items:center; gap:6px; background:#fff; padding:6px 14px; border-radius:100px; border:1px solid rgba(200,16,46,0.18); box-shadow:0 2px 6px rgba(0,0,0,0.03);">📅 ' + (kn ? '೪ ನವೆಂಬರ್ ೨೦೨೬' : CONCLAVE_EVENT.date) + '</span>' +
+        '<span style="display:inline-flex; align-items:center; gap:6px; background:#fff; padding:6px 14px; border-radius:100px; border:1px solid rgba(200,16,46,0.18); box-shadow:0 2px 6px rgba(0,0,0,0.03);">📅 ' + (kn ? '೩ ನವೆಂಬರ್ ೨೦೨೬' : CONCLAVE_EVENT.date) + '</span>' +
         '<span style="display:inline-flex; align-items:center; gap:6px; background:#fff; padding:6px 14px; border-radius:100px; border:1px solid rgba(200,16,46,0.18); box-shadow:0 2px 6px rgba(0,0,0,0.03);">🕐 ' + (kn ? '೧೧:೩೦ AM – ೧೨:೦೦ PM' : CONCLAVE_EVENT.time) + '</span>' +
         '<span style="display:inline-flex; align-items:center; gap:6px; background:#fff; padding:6px 14px; border-radius:100px; border:1px solid rgba(200,16,46,0.18); box-shadow:0 2px 6px rgba(0,0,0,0.03);">📍 ' + (kn ? 'ಎಚ್‌ಕೆಬಿಕೆ ಎಂಜಿನಿಯರಿಂಗ್ ಕಾಲೇಜು' : CONCLAVE_EVENT.venue) + '</span>' +
       '</div>' +
@@ -878,7 +878,7 @@ function isPureEntity(text){
   if(/^(?:\+?\d{1,4}[-.\s]*)?(?:\(?\d{2,5}\)?[-.\s]*)?\d{3,5}[-.\s]*\d{3,5}$/.test(t)) return true;
   // Pure Time (e.g. 10:00 AM, 11:30 - 1:00 PM, 9:00 AM – 10:00 AM)
   if(/^\d{1,2}(?::\d{2})?\s*(?:am|pm|AM|PM)?(?:\s*[-–—]\s*\d{1,2}(?::\d{2})?\s*(?:am|pm|AM|PM)?)?$/i.test(t)) return true;
-  // Pure Date (e.g. 4 November 2026, 27 Oct, 27/10/2026)
+  // Pure Date (e.g. 3 November 2026, 27 Oct, 27/10/2026)
   if(/^(?:\d{1,2}(?:st|nd|rd|th)?\s+(?:January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*(?:\s*,?\s*\d{2,4})?|\d{1,4}[-\/.]\d{1,2}[-\/.]\d{1,4})$/i.test(t)) return true;
   return false;
 }
@@ -2228,7 +2228,7 @@ function closeSponsorContact(){
 const DEFAULT_SPONSOR_CONTACT = {
   venue: "HKBK College of Engineering",
   address: "",
-  date: "4 November 2026",
+  date: "3 November 2026",
   time: "9:00 AM onwards",
   phone: "9980321527",
   email: "jaipalreddy9980321527@gmail.com"
@@ -2267,12 +2267,20 @@ function renderSponsorContact(){
   var phoneLabel = kn ? 'ದೂರವಾಣಿ' : 'Phone';
   var emailLabel = kn ? 'ಇಮೇಲ್' : 'Email';
 
+  try {
+    var storedSc = JSON.parse(localStorage.getItem('kv_sponsor_contact_v1'));
+    if (storedSc) {
+      if (storedSc.phone) sponsorContact.phone = storedSc.phone;
+      if (storedSc.email) sponsorContact.email = storedSc.email;
+    }
+  } catch(e) {}
+
   var venueVal = (sponsorContact && sponsorContact.venue) ? sponsorContact.venue : 'HKBK College of Engineering';
   var addressPart = (sponsorContact && sponsorContact.address && sponsorContact.address.trim() && sponsorContact.address.trim() !== '[ADD ADDRESS]') ?
     ' · ' + esc(sponsorContact.address.trim()) : '';
   var venueFull = esc(venueVal) + addressPart;
 
-  var dateVal = (sponsorContact && sponsorContact.date) ? sponsorContact.date : '4 November 2026';
+  var dateVal = (sponsorContact && sponsorContact.date) ? sponsorContact.date : '3 November 2026';
   var timeVal = (sponsorContact && sponsorContact.time && sponsorContact.time.trim()) ? ' · ' + esc(sponsorContact.time.trim()) : ' · 9:00 AM onwards';
   var dateTimeFull = esc(dateVal) + timeVal;
 
@@ -2283,10 +2291,10 @@ function renderSponsorContact(){
     venueData.email : ((sponsorContact && sponsorContact.email && sponsorContact.email.trim() && sponsorContact.email !== '[ADD EMAIL]') ? sponsorContact.email : 'jaipalreddy9980321527@gmail.com');
 
   var telLink = String(currentPhone).replace(/[^0-9+]/g, '');
-  var phoneHtml = '<a href="tel:' + esc(telLink) + '" style="color:var(--red); font-weight:600; text-decoration:underline;">' + esc(currentPhone) + '</a>';
+  var phoneHtml = '<a id="spContactPhone" href="tel:' + esc(telLink) + '" style="color:var(--red); font-weight:600; text-decoration:underline;">' + esc(currentPhone) + '</a>';
 
   var mailtoLink = String(currentEmail).trim();
-  var emailHtml = '<a href="mailto:' + esc(mailtoLink) + '" style="color:var(--red); font-weight:600; text-decoration:underline;">' + esc(currentEmail) + '</a>';
+  var emailHtml = '<a id="spContactEmail" href="mailto:' + esc(mailtoLink) + '" style="color:var(--red); font-weight:600; text-decoration:underline;">' + esc(currentEmail) + '</a>';
 
   var html = 
     '<div class="infoline">' +
@@ -2752,8 +2760,7 @@ function renderGuestCards(){
   if(!guests.length){
     box.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--ink-soft);padding:36px 0;">' +
       (kn ? 'ಯಾವುದೇ ಅತಿಥಿಗಳ ವಿವರ ಲಭ್ಯವಿಲ್ಲ.' : 'No guests listed yet.') +
-      '<div style="margin-top:14px;"><button class="btn btn-dark" type="button" onclick="openGuestForm(-1)">+ ' +
-      (kn ? 'ಅತಿಥಿ ಸೇರಿಸಿ' : 'Add Guest') + '</button></div></div>';
+      '</div>';
     return;
   }
   box.innerHTML = guests.map(function(g, i){
@@ -2769,10 +2776,6 @@ function renderGuestCards(){
         (role ? '<div class="role">' + role + '</div>' : '') +
         (org ? '<div class="org">' + org + '</div>' : '') +
         (desc ? '<p>' + desc + '</p>' : '') +
-        '<div class="evactions" style="margin-top:14px; justify-content:center;">' +
-          '<button class="abtn" type="button" onclick="openGuestForm(' + i + ')">' + (kn ? 'ಸಂಪಾದಿಸಿ' : 'Edit') + '</button>' +
-          '<button class="abtn del" type="button" onclick="askDeleteGuest(' + i + ')">' + (kn ? 'ಅಳಿಸಿ' : 'Delete') + '</button>' +
-        '</div>' +
       '</div>' +
     '</div>';
   }).join('');
@@ -2896,7 +2899,7 @@ var DEFAULT_VENUE = {
   nameKn: 'ಎಚ್‌ಕೆಬಿಕೆ ಇಂಜಿನಿಯರಿಂಗ್ ಕಾಲೇಜು',
   addrEn: 'Opp. Manyata Tech Park, Nagawara, Bengaluru, Karnataka 560045',
   addrKn: 'ಮಾನ್ಯತಾ ಟೆಕ್ ಪಾರ್ಕ್ ಎದುರು, ನಾಗವಾರ, ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ ೫೬೦೦೪೫',
-  date: 'Wednesday, 4 November 2026',
+  date: 'Tuesday, 3 November 2026',
   time: '9:00 AM onwards',
   descEn: 'State-of-the-art campus featuring an open-air amphitheatre, main auditorium, food court, and ample parking facilities for attendees.',
   descKn: 'ಆಧುನಿಕ ಸೌಲಭ್ಯಗಳುಳ್ಳ ಕ್ಯಾಂಪಸ್, ತೆರೆದ ಸಭಾಂಗಣ, ಆಡಿಟೋರಿಯಂ, ಫುಡ್ ಕೋರ್ಟ್ ಮತ್ತು ವಿಶಾಲವಾದ ಪಾರ್ಕಿಂಗ್ ಸೌಲಭ್ಯವನ್ನು ಹೊಂದಿದೆ.',
@@ -2951,7 +2954,7 @@ function renderVenue(){
 
   var name = esc(kn ? (venueData.nameKn || venueData.nameEn) : (venueData.nameEn || venueData.nameKn));
   var addr = esc(kn ? (venueData.addrKn || venueData.addrEn) : (venueData.addrEn || venueData.addrKn));
-  var dateStr = esc(venueData.date || (kn ? 'ಬುಧವಾರ, ೪ ನವೆಂಬರ್ ೨೦೨೬' : 'Wednesday, 4 November 2026'));
+  var dateStr = esc(venueData.date || (kn ? 'ಮಂಗಳವಾರ, ೩ ನವೆಂಬರ್ ೨೦೨೬' : 'Tuesday, 3 November 2026'));
   var timeStr = esc(venueData.time || (kn ? 'ಬೆಳಿಗ್ಗೆ ೯:೦೦ ರಿಂದ' : '9:00 AM onwards'));
   var desc = esc(kn ? (venueData.descKn || venueData.descEn) : (venueData.descEn || venueData.descKn));
   var mapsUrl = venueData.mapsUrl ? esc(venueData.mapsUrl) : '';
@@ -3346,12 +3349,47 @@ document.addEventListener('keydown', function(ev){
   }
 });
 
+function sortScheduleFallback(list){
+  if(!Array.isArray(list)) return [];
+  function getVal(s){
+    if(!s) return 9999;
+    if(typeof s.order_index === 'number' && s.order_index > 0) return s.order_index * 1000;
+    var t = String(s.t_en || s.time_en || '').toLowerCase();
+    var h = String(s.h_en || s.heading_en || '').toLowerCase();
+    if(t.indexOf('9:00') !== -1 || h.indexOf('nashik') !== -1) return 100;
+    if(t.indexOf('10:00') !== -1 || t.indexOf('10:30') !== -1 || h.indexOf('parade') !== -1) return 200;
+    if(t.indexOf('11:30') !== -1 || h.indexOf('conclave') !== -1) return 300;
+    if(t.indexOf('12:00') !== -1 || h.indexOf('main function') !== -1 || h.indexOf('lunch') !== -1) return 400;
+    if(t.indexOf('till 4:00') !== -1 || h.indexOf('cultural performances') !== -1) return 500;
+    if(t.indexOf('break') !== -1 || t.indexOf('afternoon') !== -1 || h.indexOf('break') !== -1) return 600;
+    if(t.indexOf('4:30') !== -1 || t.indexOf('7:00') !== -1 || h.indexOf('concert') !== -1 || h.indexOf('savaari') !== -1) return 700;
+    var match = t.match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)?/i);
+    if(match){
+      var hours = parseInt(match[1], 10);
+      var mins = match[2] ? parseInt(match[2], 10) : 0;
+      var meridiem = match[3] ? match[3].toLowerCase() : '';
+      if(!meridiem){
+        if(hours >= 9 && hours <= 11) meridiem = 'am';
+        else meridiem = 'pm';
+      }
+      if(meridiem === 'pm' && hours < 12) hours += 12;
+      if(meridiem === 'am' && hours === 12) hours = 0;
+      return hours * 60 + mins;
+    }
+    return 9999;
+  }
+  return list.slice().sort(function(a, b){ return getVal(a) - getVal(b); });
+}
+
 function isKN(){return document.body.classList.contains('lang-kn');}
 function renderData(){
   var kn=isKN();
   var tl=document.getElementById('timelineList');
   if(tl){
-    tl.innerHTML = SCHEDULE.map(function(s){
+    var list = (window.SupabaseData && typeof window.SupabaseData.sortSchedule === 'function')
+      ? window.SupabaseData.sortSchedule(SCHEDULE)
+      : sortScheduleFallback(SCHEDULE);
+    tl.innerHTML = list.map(function(s){
       return '<div class="titem"><div class="time">'+(kn?s.t_kn:s.t_en)+'</div><h4>'+(kn?s.h_kn:s.h_en)+'</h4><p>'+(kn?s.d_kn:s.d_en)+'</p></div>';
     }).join('');
   }
@@ -3472,8 +3510,8 @@ function applyHomeContent(map){
     if(hero.extra){
       var dEn = document.querySelector('.hero-date-line .en');
       var dKn = document.querySelector('.hero-date-line .kn');
-      if(dEn && hero.extra.date_en) dEn.textContent = hero.extra.date_en;
-      if(dKn && hero.extra.date_kn) dKn.textContent = hero.extra.date_kn;
+      if(dEn && hero.extra.date_en) dEn.textContent = (hero.extra.date_en === '4th November 2026' ? '3rd November 2026' : hero.extra.date_en);
+      if(dKn && hero.extra.date_kn) dKn.textContent = (hero.extra.date_kn === '೪ನೇ ನವೆಂಬರ್ ೨೦೨೬' ? '೩ನೇ ನವೆಂಬರ್ ೨೦೨೬' : hero.extra.date_kn);
       var subEn = document.querySelector('.hero-content .sub .en');
       var subKn = document.querySelector('.hero-content .sub .kn');
       if(subEn && hero.extra.tagline_en) subEn.textContent = hero.extra.tagline_en;
@@ -3545,13 +3583,16 @@ async function initSupabaseDataOnPublicSite(){
       if(results[8].status === 'fulfilled' && results[8].value){
         venueData = results[8].value;
         if(venueData){
+          if(venueData.date === 'Wednesday, 4 November 2026') venueData.date = 'Tuesday, 3 November 2026';
           if(!venueData.phone || venueData.phone === '+91 98450 00000' || venueData.phone === '[ADD CONTACT NUMBER]') venueData.phone = '9980321527';
           if(!venueData.email || venueData.email === 'info@hkbk.edu.in' || venueData.email === '[ADD EMAIL]') venueData.email = 'jaipalreddy9980321527@gmail.com';
         }
         try { localStorage.setItem('kv_venue_v1', JSON.stringify(venueData)); } catch(e){}
       }
       if(results[9].status === 'fulfilled' && Array.isArray(results[9].value)){
-        SCHEDULE = results[9].value;
+        SCHEDULE = (window.SupabaseData && typeof window.SupabaseData.sortSchedule === 'function')
+          ? window.SupabaseData.sortSchedule(results[9].value)
+          : sortScheduleFallback(results[9].value);
       }
       if(results[10].status === 'fulfilled' && results[10].value){
         applyHomeContent(results[10].value);

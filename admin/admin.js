@@ -293,11 +293,11 @@
 
             <div>
               <label class="fldlabel">Event Date (English)</label>
-              <input class="fld" id="hcDateEn" value="${esc(heroExtra.date_en || '4th November 2026')}">
+              <input class="fld" id="hcDateEn" value="${esc(heroExtra.date_en || '3rd November 2026')}">
             </div>
             <div>
               <label class="fldlabel">Event Date (Kannada)</label>
-              <input class="fld" id="hcDateKn" value="${esc(heroExtra.date_kn || '೪ನೇ ನವೆಂಬರ್ ೨೦೨೬')}">
+              <input class="fld" id="hcDateKn" value="${esc(heroExtra.date_kn || '೩ನೇ ನವೆಂಬರ್ ೨೦೨೬')}">
             </div>
 
             <div>
@@ -430,7 +430,7 @@
 
         <div>
           <label class="fldlabel">Date</label>
-          <input class="fld" id="evDate" value="${esc(ev.date || 'Wednesday, 4 November 2026')}">
+          <input class="fld" id="evDate" value="${esc(ev.date || 'Tuesday, 3 November 2026')}">
         </div>
         <div>
           <label class="fldlabel">Time</label>
@@ -1085,6 +1085,8 @@
       `;
     }).join('');
 
+    var scContact = (await window.SupabaseData.getSponsorshipContact()) || { phone: '9980321527', email: 'jaipalreddy9980321527@gmail.com' };
+
     c.innerHTML = `
       <div class="admin-card">
         <div class="admin-card-head">
@@ -1107,7 +1109,60 @@
           </table>
         </div>
       </div>
+
+      <!-- Sponsorship Contact Details -->
+      <div class="admin-card" style="margin-top:24px;">
+        <div class="admin-card-head" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <div>
+            <h3 style="margin:0;">Sponsorship Contact Details</h3>
+            <p style="margin:4px 0 0; font-size:.85rem; color:var(--ink-soft);">
+              Manage the contact phone and email shown in the public Sponsorship page "Contact Us" section.
+            </p>
+          </div>
+          <span class="badge" style="background:#eef7ed; color:#2e7d32; font-weight:700;">Public Sponsorship Page</span>
+        </div>
+        <div class="admin-card-body">
+          <form id="formPkgSponsorContact" class="frm2">
+            <div>
+              <label class="fldlabel">Phone Number *</label>
+              <input class="fld" id="pkgScPhone" value="${esc(scContact.phone || '9980321527')}" placeholder="9980321527" required>
+              <small style="color:var(--ink-soft); font-size:.8rem; display:block; margin-top:4px;">Clickable with <code>tel:</code> on the public site</small>
+            </div>
+            <div>
+              <label class="fldlabel">Email Address *</label>
+              <input class="fld" id="pkgScEmail" type="email" value="${esc(scContact.email || 'jaipalreddy9980321527@gmail.com')}" placeholder="jaipalreddy9980321527@gmail.com" required>
+              <small style="color:var(--ink-soft); font-size:.8rem; display:block; margin-top:4px;">Clickable with <code>mailto:</code> on the public site</small>
+            </div>
+
+            <div style="grid-column:1/-1; display:flex; gap:12px; margin-top:14px; align-items:center;">
+              <button class="btn btn-dark" type="submit" id="btnSavePkgSponsorContact">Save Changes</button>
+              <button class="btn btn-outline" type="button" id="btnCancelPkgSponsorContact" onclick="window.AdminApp.switchSection('packages')">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
     `;
+
+    var pkgScForm = gid('formPkgSponsorContact');
+    if (pkgScForm) {
+      pkgScForm.onsubmit = async function (e) {
+        e.preventDefault();
+        var btn = gid('btnSavePkgSponsorContact');
+        btn.disabled = true;
+        btn.textContent = 'Saving...';
+        try {
+          var pVal = gid('pkgScPhone').value.trim();
+          var eVal = gid('pkgScEmail').value.trim();
+          await window.SupabaseData.saveSponsorshipContact({ phone: pVal, email: eVal });
+          showToast('Sponsorship contact details saved successfully!', false);
+        } catch (err) {
+          showToast('Error saving contact details: ' + (err.message || err), true);
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Save Changes';
+        }
+      };
+    }
   }
 
   function editPackage(idx) {
@@ -1561,7 +1616,7 @@
 
             <div>
               <label class="fldlabel">Event Date</label>
-              <input class="fld" id="vnDate" value="${esc(v.date || 'Wednesday, 4 November 2026')}">
+              <input class="fld" id="vnDate" value="${esc(v.date || 'Tuesday, 3 November 2026')}">
             </div>
             <div>
               <label class="fldlabel">Event Time</label>
@@ -1600,6 +1655,36 @@
           </form>
         </div>
       </div>
+      <div class="admin-card" style="margin-top:24px;">
+        <div class="admin-card-head" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <div>
+            <h3 style="margin:0;">Sponsorship Contact Details</h3>
+            <p style="margin:4px 0 0; font-size:.85rem; color:var(--ink-soft);">
+              Manage the contact phone and email shown in the public Sponsorship page "Contact Us" section.
+            </p>
+          </div>
+          <span class="badge" style="background:#eef7ed; color:#2e7d32; font-weight:700;">Public Sponsorship Page</span>
+        </div>
+        <div class="admin-card-body">
+          <form id="formSponsorContact" class="frm2">
+            <div>
+              <label class="fldlabel">Phone Number *</label>
+              <input class="fld" id="scPhone" value="${esc(phoneVal)}" placeholder="9980321527" required>
+              <small style="color:var(--ink-soft); font-size:.8rem; display:block; margin-top:4px;">Clickable with <code>tel:</code> on the public site</small>
+            </div>
+            <div>
+              <label class="fldlabel">Email Address *</label>
+              <input class="fld" id="scEmail" type="email" value="${esc(emailVal)}" placeholder="jaipalreddy9980321527@gmail.com" required>
+              <small style="color:var(--ink-soft); font-size:.8rem; display:block; margin-top:4px;">Clickable with <code>mailto:</code> on the public site</small>
+            </div>
+
+            <div style="grid-column:1/-1; display:flex; gap:12px; margin-top:14px; align-items:center;">
+              <button class="btn btn-dark" type="submit" id="btnSaveSponsorContact">Save Changes</button>
+              <button class="btn btn-outline" type="button" id="btnCancelSponsorContact" onclick="window.AdminApp.switchSection('venue')">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
     `;
 
     gid('formVenueSection').onsubmit = async function (e) {
@@ -1608,6 +1693,8 @@
       btn.disabled = true;
       btn.textContent = 'Saving...';
       try {
+        var vPhone = gid('vnPhone').value.trim();
+        var vEmail = gid('vnEmail').value.trim();
         await window.SupabaseData.saveVenue({
           nameEn: gid('vnNameEn').value.trim(),
           nameKn: gid('vnNameKn').value.trim(),
@@ -1615,12 +1702,14 @@
           addrKn: gid('vnAddrKn').value.trim(),
           date: gid('vnDate').value.trim(),
           time: gid('vnTime').value.trim(),
-          phone: gid('vnPhone').value.trim(),
-          email: gid('vnEmail').value.trim(),
+          phone: vPhone,
+          email: vEmail,
           mapsUrl: gid('vnMaps').value.trim(),
           descEn: gid('vnDescEn').value.trim(),
           descKn: gid('vnDescKn').value.trim()
         });
+        if (gid('scPhone')) gid('scPhone').value = vPhone;
+        if (gid('scEmail')) gid('scEmail').value = vEmail;
         showToast('Venue information updated successfully!', false);
       } catch (err) {
         showToast('Error saving venue: ' + err.message, true);
@@ -1629,6 +1718,32 @@
         btn.textContent = 'Save Venue Information';
       }
     };
+
+    var scForm = gid('formSponsorContact');
+    if (scForm) {
+      scForm.onsubmit = async function (e) {
+        e.preventDefault();
+        var btn = gid('btnSaveSponsorContact');
+        btn.disabled = true;
+        btn.textContent = 'Saving...';
+        try {
+          var pVal = gid('scPhone').value.trim();
+          var eVal = gid('scEmail').value.trim();
+          await window.SupabaseData.saveSponsorshipContact({
+            phone: pVal,
+            email: eVal
+          });
+          if (gid('vnPhone')) gid('vnPhone').value = pVal;
+          if (gid('vnEmail')) gid('vnEmail').value = eVal;
+          showToast('Sponsorship contact details saved successfully!', false);
+        } catch (err) {
+          showToast('Error saving contact details: ' + (err.message || err), true);
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Save Changes';
+        }
+      };
+    }
   }
 
   // ------------------------------------------------------------------
@@ -1638,6 +1753,9 @@
   async function renderScheduleSection() {
     var c = gid('secContent');
     activeSchedule = (await window.SupabaseData.getSchedule()) || [];
+    if (window.SupabaseData && typeof window.SupabaseData.sortSchedule === 'function') {
+      activeSchedule = window.SupabaseData.sortSchedule(activeSchedule);
+    }
 
     var rows = activeSchedule.map(function (s, idx) {
       return `

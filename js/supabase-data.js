@@ -36,6 +36,10 @@
       if (res.error) throw res.error;
       var map = {};
       (res.data || []).forEach(function (row) {
+        if (row && row.key === 'hero' && row.extra) {
+          if (row.extra.date_en === '4th November 2026') row.extra.date_en = '3rd November 2026';
+          if (row.extra.date_kn === '೪ನೇ ನವೆಂಬರ್ ೨೦೨೬') row.extra.date_kn = '೩ನೇ ನವೆಂಬರ್ ೨೦೨೬';
+        }
         map[row.key] = row;
       });
       return map;
@@ -772,7 +776,7 @@
       nameKn: 'ಎಚ್‌ಕೆಬಿಕೆ ಇಂಜಿನಿಯರಿಂಗ್ ಕಾಲೇಜು',
       addrEn: 'Opp. Manyata Tech Park, Nagawara, Bengaluru, Karnataka 560045',
       addrKn: 'ಮಾನ್ಯತಾ ಟೆಕ್ ಪಾರ್ಕ್ ಎದುರು, ನಾಗವಾರ, ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ ೫೬೦೦೪೫',
-      date: 'Wednesday, 4 November 2026',
+      date: 'Tuesday, 3 November 2026',
       time: '9:00 AM onwards',
       descEn: 'State-of-the-art campus featuring an open-air amphitheatre, main auditorium, food court, and ample parking facilities for attendees.',
       descKn: 'ಆಧುನಿಕ ಸೌಲಭ್ಯಗಳುಳ್ಳ ಕ್ಯಾಂಪಸ್, ತೆರೆದ ಸಭಾಂಗಣ, ಆಡಿಟೋರಿಯಂ, ಫುಡ್ ಕೋರ್ಟ್ ಮತ್ತು ವಿಶಾಲವಾದ ಪಾರ್ಕಿಂಗ್ ಸೌಲಭ್ಯವನ್ನು ಹೊಂದಿದೆ.',
@@ -808,7 +812,7 @@
         nameKn: v.name_kn || defaultObj.nameKn,
         addrEn: v.address_en || defaultObj.addrEn,
         addrKn: v.address_kn || defaultObj.addrKn,
-        date: v.date || defaultObj.date,
+        date: (v.date === 'Wednesday, 4 November 2026' ? 'Tuesday, 3 November 2026' : (v.date || defaultObj.date)),
         time: v.time || defaultObj.time,
         descEn: v.description_en || defaultObj.descEn,
         descKn: v.description_kn || defaultObj.descKn,
@@ -893,9 +897,78 @@
     return normalized;
   }
 
+  // Sponsorship Contact (Phone & Email editable from Admin)
+  async function getSponsorshipContact() {
+    var v = await getVenue();
+    return {
+      phone: (v && v.phone) ? v.phone : '9980321527',
+      email: (v && v.email) ? v.email : 'jaipalreddy9980321527@gmail.com'
+    };
+  }
+
+  async function saveSponsorshipContact(contact) {
+    var phone = (contact && contact.phone) ? String(contact.phone).trim() : '9980321527';
+    var email = (contact && contact.email) ? String(contact.email).trim() : 'jaipalreddy9980321527@gmail.com';
+
+    var currentVenue = (await getVenue()) || {};
+    currentVenue.phone = phone;
+    currentVenue.email = email;
+
+    await saveVenue(currentVenue);
+
+    try {
+      localStorage.setItem('kv_sponsor_contact_v1', JSON.stringify({ phone: phone, email: email }));
+    } catch (e) {}
+
+    return { phone: phone, email: email };
+  }
+
   // ------------------------------------------------------------------
   // 11. SCHEDULE
   // ------------------------------------------------------------------
+  function getScheduleTimeSortValue(s) {
+    if (!s) return 9999;
+    if (typeof s.order_index === 'number' && s.order_index > 0) {
+      return s.order_index * 1000;
+    }
+    var t = String(s.time_en || s.t_en || '').toLowerCase();
+    var h = String(s.heading_en || s.h_en || '').toLowerCase();
+
+    if (t.indexOf('9:00') !== -1 || h.indexOf('nashik') !== -1) return 100;
+    if (t.indexOf('10:00') !== -1 || t.indexOf('10:30') !== -1 || h.indexOf('parade') !== -1) return 200;
+    if (t.indexOf('11:30') !== -1 || h.indexOf('conclave') !== -1) return 300;
+    if (t.indexOf('12:00') !== -1 || h.indexOf('main function') !== -1 || h.indexOf('lunch') !== -1) return 400;
+    if (t.indexOf('till 4:00') !== -1 || h.indexOf('cultural performances') !== -1) return 500;
+    if (t.indexOf('break') !== -1 || t.indexOf('afternoon') !== -1 || h.indexOf('break') !== -1) return 600;
+    if (t.indexOf('4:30') !== -1 || t.indexOf('7:00') !== -1 || h.indexOf('concert') !== -1 || h.indexOf('savaari') !== -1) return 700;
+
+    var match = t.match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)?/i);
+    if (match) {
+      var hours = parseInt(match[1], 10);
+      var mins = match[2] ? parseInt(match[2], 10) : 0;
+      var meridiem = match[3] ? match[3].toLowerCase() : '';
+      if (!meridiem) {
+        if (hours >= 9 && hours <= 11) meridiem = 'am';
+        else meridiem = 'pm';
+      }
+      if (meridiem === 'pm' && hours < 12) hours += 12;
+      if (meridiem === 'am' && hours === 12) hours = 0;
+      return hours * 60 + mins;
+    }
+
+    return 9999;
+  }
+
+  function sortSchedule(list) {
+    if (!Array.isArray(list)) return [];
+    return list.slice().sort(function (a, b) {
+      var va = getScheduleTimeSortValue(a);
+      var vb = getScheduleTimeSortValue(b);
+      if (va !== vb) return va - vb;
+      return (a.order_index || 0) - (b.order_index || 0);
+    });
+  }
+
   async function getSchedule() {
     if (!isReady()) return null;
     try {
@@ -905,7 +978,7 @@
         .order('order_index', { ascending: true })
         .order('created_at', { ascending: true });
       if (res.error) throw res.error;
-      return (res.data || []).map(function (s) {
+      var items = (res.data || []).map(function (s) {
         return {
           id: s.id,
           t_en: s.time_en,
@@ -917,6 +990,7 @@
           order_index: s.order_index
         };
       });
+      return sortSchedule(items);
     } catch (e) {
       console.warn('Supabase getSchedule error:', e);
       return null;
@@ -1259,12 +1333,15 @@
     saveGalleryItem: saveGalleryItem,
     deleteGalleryItem: deleteGalleryItem,
 
-    // 10. Venue
+    // 10. Venue & Sponsorship Contact
     getVenue: getVenue,
     saveVenue: saveVenue,
+    getSponsorshipContact: getSponsorshipContact,
+    saveSponsorshipContact: saveSponsorshipContact,
 
     // 11. Schedule
     getSchedule: getSchedule,
+    sortSchedule: sortSchedule,
     saveScheduleItem: saveScheduleItem,
     deleteScheduleItem: deleteScheduleItem,
 

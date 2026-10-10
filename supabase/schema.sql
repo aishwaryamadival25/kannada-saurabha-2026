@@ -382,7 +382,7 @@ USING (bucket_id = 'media' AND public.is_admin());
 -- Home Content Seed
 INSERT INTO public.home_content (key, content_en, content_kn, extra)
 VALUES
-('hero', 'Kannada Saurabha 2026', 'ಕನ್ನಡ ಸೌರಭ 2026', '{"date_en":"4th November 2026","date_kn":"೪ನೇ ನವೆಂಬರ್ ೨೦೨೬","tagline_en":"Celebrating Karnataka • Culture • Unity","tagline_kn":"ಕರ್ನಾಟಕ • ಸಂಸ್ಕೃತಿ • ಏಕತೆ"}'::jsonb),
+('hero', 'Kannada Saurabha 2026', 'ಕನ್ನಡ ಸೌರಭ 2026', '{"date_en":"3rd November 2026","date_kn":"೩ನೇ ನವೆಂಬರ್ ೨೦೨೬","tagline_en":"Celebrating Karnataka • Culture • Unity","tagline_kn":"ಕರ್ನಾಟಕ • ಸಂಸ್ಕೃತಿ • ಏಕತೆ"}'::jsonb),
 ('about_summary', 'Kannada Saurabha 2026 brings our community together to celebrate the Kannada language, Karnataka''s culture, music, dance, literature, and the spirit of unity that ties us to our roots.', 'ಕನ್ನಡ ಸೌರಭ ೨೦೨೬ ನಮ್ಮ ಸಮುದಾಯವನ್ನು ಒಗ್ಗೂಡಿಸಿ ಕನ್ನಡ ಭಾಷೆ, ಕರ್ನಾಟಕದ ಸಂಸ್ಕೃತಿ, ಸಂಗೀತ, ನೃತ್ಯ, ಸಾಹಿತ್ಯ ಮತ್ತು ನಮ್ಮ ಬೇರುಗಳೊಂದಿಗಿನ ಏಕತೆಯ ಆಚರಣೆ.', '{}'::jsonb),
 ('host_institution', 'HKBK Group of Institutions', 'ಎಚ್‌ಕೆಬಿಕೆ ಶಿಕ್ಷಣ ಸಂಸ್ಥೆಗಳ ಸಮೂಹ', '{"sub_en":"Committed to Academic Excellence & Cultural Heritage","sub_kn":"ಶೈಕ್ಷಣಿಕ ಶ್ರೇಷ್ಠತೆ ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಪರಂಪರೆಗೆ ಬದ್ಧ"}'::jsonb)
 ON CONFLICT (key) DO NOTHING;
@@ -394,7 +394,7 @@ VALUES (
     'ಎಚ್‌ಕೆಬಿಕೆ ಇಂಜಿನಿಯರಿಂಗ್ ಕಾಲೇಜು',
     'Opp. Manyata Tech Park, Nagawara, Bengaluru, Karnataka 560045',
     'ಮಾನ್ಯತಾ ಟೆಕ್ ಪಾರ್ಕ್ ಎದುರು, ನಾಗವಾರ, ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ ೫೬೦೦೪೫',
-    'Wednesday, 4 November 2026',
+    'Tuesday, 3 November 2026',
     '9:00 AM onwards',
     'State-of-the-art campus featuring an open-air amphitheatre, main auditorium, food court, and ample parking facilities for attendees.',
     'ಆಧುನಿಕ ಸೌಲಭ್ಯಗಳುಳ್ಳ ಕ್ಯಾಂಪಸ್, ತೆರೆದ ಸಭಾಂಗಣ, ಆಡಿಟೋರಿಯಂ, ಫುಡ್ ಕೋರ್ಟ್ ಮತ್ತು ವಿಶಾಲವಾದ ಪಾರ್ಕಿಂಗ್ ಸೌಲಭ್ಯವನ್ನು ಹೊಂದಿದೆ.',
